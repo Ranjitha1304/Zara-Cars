@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign In - ZARA Cars</title>
+  <link rel="stylesheet" href="./assets/css/signIn.css" />
+</head>
+<body>
+
+  <!-- Sign In Sidebar -->
+  <div id="signInSidebar" class="sidebar open">
+    <form id="signInForm" class="sidebar-content">
+      <h2>Sign In</h2>
+
+      <label>Email</label>
+      <input type="email" id="email" required />
+
+      <label>Password</label>
+      <input type="password" id="password" required />
+
+      <div class="forgot"><a href="#">Forgot password?</a></div>
+
+      <button type="submit" class="primary-btn">Sign in</button>
+
+      <div class="divider"><span>or</span></div>
+
+      <button type="button" class="google-btn">
+        <img src="https://img.icons8.com/color/16/000000/google-logo.png"/> Sign in with Google
+      </button>
+    </form>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <img src="https://cdn-icons-png.flaticon.com/512/4436/4436481.png" alt="Success" />
+      <p>Signed in successfully!</p>
+    </div>
+  </div>
+
+  <script src="./assets/js/signIn.js"></script>
+</body>
+</html>

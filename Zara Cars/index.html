@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZARA Cars</title>
+  <link rel="icon" href="./assets/images/Zara cars logo icon.png" type="image/png" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="./assets/css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/signIn.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg bg-white shadow px-4 py-3">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="./index.html">
+      <img src="./assets/images/Zara cars logo icon.png" alt="Car Logo" class="me-2" />
+      <strong>ZARA <br><span style="font-weight:500;font-size: 16px;">Cars</span></strong>
+    </a>
+
+    <!-- Toggler (hamburger icon for small screens) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+      
+      <!-- LEFT: Home, About Us, Rental Cars -->
+      <ul class="navbar-nav custom-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./aboutUs.html">About Us</a>
+        </li>
+
+        <li class="dropdown">
+          <a href="#"  class="nav-link" id="rentalCarsBtn">Rental Cars &#9662;</a>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <div class="dropdown-column">
+              <a href="tenkasi.html">Car Rental in Tenkasi <span style="font-size: 32px;">&#8250;</span></a>
+              <a href="surandai.html">Car Rental in Surandai <span style="font-size: 32px;">&#8250;</span></a>
+              <a href="tirunelveli.html">Car Rental in Tirunelveli <span style="font-size: 32px;">&#8250;</span></a>
+              <a href="sankarankovil.html">Car Rental in Sankarankovil <span style="font-size: 32px;">&#8250;</span></a>
+            </div>
+            <div class="dropdown-column">
+              <a href="kovilpatti.html">Car rental in Kovilpatti <span style="font-size: 32px;">&#8250;</span></a>
+              <a href="rajapalayam.html">Car Rental in Rajapalayam <span style="font-size: 32px;">&#8250;</span></a>
+              <a href="pavoorchatram.html">Car Rental in Pavoorchatram <span style="font-size: 32px;">&#8250;</span></a>
+              <a href="sengotai.html">Car Rental in Sengotai <span style="font-size: 32px;">&#8250;</span></a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <!-- RIGHT: FAQs, Sign in -->
+      <ul class="navbar-nav custom-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="./aboutUs.html">FAQs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="signInLink">Sign in</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Sign In Sidebar (Initially Hidden) -->
+  <div id="signInSidebar" class="sidebar">
+    <div id="closeSidebar" class="close-btn">&times;</div> <!-- Close button -->
+
+    <form id="signInForm" class="sidebar-content">
+      <h2>Sign In</h2>
+
+      <label for="email">Email</label>
+      <div class="input-wrapper">
+        <img src="./assets/images/Contuct us -Email icon.png" alt="Email Icon" class="input-icon" /> <!-- Replace with your image -->
+        <input type="email" id="email" required  />
+      </div>
+
+      <label for="password">Password</label>
+      <div class="input-wrapper">
+        <img src="./assets/images/Sign in -password icon.png" alt="Password Icon" class="input-icon" /> <!-- Replace with your image -->
+        <input type="password" id="password" required  />
+        <ul id="passwordError" class="error-list"></ul>
+
+      </div>
+
+      <div class="forgot"><a href="#">Forgot password?</a></div>
+
+      <button type="submit" class="primary-btn">Sign in</button>
+
+      <div class="divider"><span>or</span></div>
+
+      <button type="button" class="google-btn">
+        <img src="https://img.icons8.com/color/16/000000/google-logo.png" /> Sign in with Google
+      </button>
+    </form>
+  </div>
+
+  <!-- Success Modal (Initially Hidden) -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <img src="./assets/images/Sign in successfully icon.png" alt="Success" />
+      <p>Signed in successfully!</p>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section text-center text-dark py-5">
+    <div class="container">
+      <h1 class="display-3 fw-bold">Turn Your Travel</h1>
+      <h1 class="display-3 fw-bold text-dark">Dreams Into a Reality</h1>
+      <p class="mt-3 mx-auto text-start " style="max-width: 850px; font-size: 18px; font-weight: 500;">
+        Zara cars is one of the most trusted car rental service. You can book cars on an hourly, daily,
+        weekly, monthly basis. Moreover, we provide door-step delivery, believe in complete
+        transparency, and adhere strictly to business ethics.
+      </p>
+    </div>
+
+    <!-- Form Section -->
+    <div class="container mt-5">
+      <div class="form-box p-4 rounded-4 shadow-lg bg-white d-flex flex-wrap justify-content-center gap-3">
+        <div class="form-group">
+          <label class="form-label">Car Type</label>
+          <select class="form-select">
+            <option selected>Select Type</option>
+            <option>5 Seater</option>
+            <option>7 Seater</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Pickup Date</label>
+          <input type="date" class="form-select" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Pickup Location</label>
+          <select class="form-select" id="pickupLocation">
+            <option selected>Select Location</option>
+            <option>Surandai</option>
+            <option>Tirunelveli</option>
+            <option>Sankarankovil</option>
+            <option>Kovilpatti</option>
+            <option>Rajapalayam</option>
+            <option>Pavoorchatram</option>
+            <option>Sengottai</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Pickup Time</label>
+          <input type="time" class="form-select" />
+        </div>
+        <div class="form-group d-flex align-items-end">
+          <button class="btn px-4" onclick="redirectToLocation()">Search</button>
+        </div>
+        
+        <!-- <div class="form-group d-flex align-items-end">
+          <button class="btn px-4"><a href="./tenkasi.html" style="text-decoration: none;color: black;">Search</a></button>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+
+
+<section class="car-img">
+  <img src="./assets/images/Zara cars home page Images.png">
+</section>
+
+
+<section class="commitment-section">
+  <h2>Our Commitment is Customer Satisfaction.<br />With Transparent Pricing Flexible Rental cars</h2>
+  <div class="divider"></div>
+
+  <div class="container">
+    <div class="row text-center text-md-start justify-content-center g-5">
+      <!-- Experience -->
+      <div class="col-md-4 d-flex justify-content-center">
+        <div class="feature-box">
+          <div class="icon-box">
+            <img src="./assets/images/Experience Icon.png" alt="Check Icon" />
+          </div>
+          <div>
+            <div class="feature-title">Experience</div>
+            <div class="feature-desc">We have More than 200Years</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clients Served -->
+      <div class="col-md-4 d-flex justify-content-center">
+        <div class="feature-box">
+          <div class="icon-box">
+            <img src="./assets/images/Experience Icon.png" alt="Check Icon" />
+          </div>
+          <div>
+            <div class="feature-title">Clients served</div>
+            <div class="feature-desc">More then 1500 Clients</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stock Cars -->
+      <div class="col-md-4 d-flex justify-content-center">
+        <div class="feature-box">
+          <div class="icon-box">
+            <img src="./assets/images/Experience Icon.png" alt="Check Icon" />
+            </div>
+          <div>
+            <div class="feature-title">Stock Cars</div>
+            <div class="feature-desc">1200+ cars</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="container">
+  <!-- Section Template -->
+   <div class="car-heading"><h2>Our Top Selling Cars</h2></div>
+  <div class="car-section">
+    <h4 class="section-heading">Manual 5seater Cars</h4>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="car-card">
+          <h5>Swift Maruti</h5>
+          <img src="./assets/images/5 Seater cars (Manual and automatic)-Swift Maruti image.png" alt="Swift Maruti">
+          <div class="features">
+            <p><img src="./assets/images/Cars Hatchback-icon.png"> Hatchback</p>
+            <p> <img src="./assets/images/Manual cars icon.png">Manual</p>
+            <p><img src="./assets/images/Cars seats icon.png"> 5Seats</p>
+          </div>
+          <p class="price">₹ 2500 <sup><span style="font-size:20px;">Perday</span></sup></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="car-card">
+          <h5>Santro AT Hyundai</h5>
+          <img src="./assets/images/5 Seater cars (Manual and automatic)-Santro AT Hyndai image.png" alt="Santro Hyundai">
+          <div class="features">
+            <p><img src="./assets/images/Cars Hatchback-icon.png"> Hatchback</p>
+            <p> <img src="./assets/images/Manual cars icon.png">Manual</p>
+            <p><img src="./assets/images/Cars seats icon.png"> 5Seats</p>
+          </div>
+          <p class="price">₹ 2800 <sup><span style="font-size:20px;">Perday</span></sup></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="car-card">
+          <h5>Baleno AT Maruti</h5>
+          <img src="./assets/images/5 Seater cars (Manual and automatic)-Santro AT Maruti image.png" alt="Baleno Maruti">
+          <div class="features">
+            <p><img src="./assets/images/Cars Hatchback-icon.png"> Hatchback</p>
+            <p> <img src="./assets/images/Manual cars icon.png">Manual</p>
+            <p><img src="./assets/images/Cars seats icon.png"> 5Seats</p>
+          </div>
+          <p class="price">₹ 3500 <sup><span style="font-size:20px;">Perday</span></sup></p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <button class="view-btn"><a href="./cars.html" style="text-decoration: none;color: black;">View more</a></button>
+    </div>
+  </div>
+
+  <!-- Copy the above block for each section, changing heading & car details -->
+
+  <div class="car-section">
+    <h4 class="section-heading">Automatic 5seater Cars</h4>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="car-card">
+          <h5>Swift Maruti</h5>
+          <img src="./assets/images/5 Seater cars (Manual and automatic)-Swift Maruti image.png" alt="Swift Maruti">
+          <div class="features">
+            <p><img src="./assets/images/Cars Hatchback-icon.png"> Hatchback</p>
+            <p> <img src="./assets/images/Manual cars icon.png">Manual</p>
+            <p><img src="./assets/images/Cars seats icon.png"> 5Seats</p>
+          </div>
+          <p class="price">₹ 2500 <sup><span style="font-size:20px;">Perday</span></sup></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="car-card">
+          <h5>Santro AT Hyundai</h5>
+          <img src="./assets/images/5 Seater cars (Manual and automatic)-Santro AT Hyndai image.png" alt="Santro Hyundai">
+          <div class="features">
+            <p><img src="./assets/images/Cars Hatchback-icon.png"> Hatchback</p>
+            <p> <img src="./assets/images/Manual cars icon.png">Manual</p>
+            <p><img src="./assets/images/Cars seats icon.png"> 5Seats</p>
+          </div>
+          <p class="price">₹ 2800 <sup><span style="font-size:20px;">Perday</span></sup></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="car-card">
+          <h5>Baleno AT Maruti</h5>
+          <img src="./assets/images/5 Seater cars (Manual and automatic)-Santro AT Maruti image.png" alt="Baleno Maruti">
+          <div class="features">
+            <p><img src="./assets/images/Cars Hatchback-icon.png"> Hatchback</p>
+            <p> <img src="./assets/images/Manual cars icon.png">Manual</p>
+            <p><img src="./assets/images/Cars seats icon.png"> 5Seats</p>
+          </div>
+          <p class="price">₹ 3500 <sup><span style="font-size:20px;">Perday</span></sup></p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <button class="view-btn"><a href="./cars.html" style="text-decoration: none;color: black;">View more</a></button>
+    </div>
+  </div>
+
+  <div class="car-section">
+    <h4 class="section-heading">Manual 7seater Cars</h4>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="car-card">
+          <h5>Swift Maruti</h5>
+          <img src="./assets/images/5 Seater cars (Manual and automatic)-Swift Maruti image.png" alt="Swift Maruti">
+          <div class="features">
+            <p><img src="./assets/images/Cars Hatchback-icon.png"> Hatchback</p>
+            <p> <img src="./assets/images/Manual cars icon.png">Manual</p>
+            <p><img src="./assets/images/Cars seats icon.png"> 5Seats</p>
+          </div>
+          <p class="price">₹ 2500 <sup><span style="font-size:20px;">Perday</span></sup></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="car-card">
+          <h5>Santro AT Hyundai</h5>
+          <img src="./assets/images/5 Seater cars (Manual and automatic)-Santro AT Hyndai image.png" alt="Santro Hyundai">
+          <div class="features">
+            <p><img src="./assets/images/Cars Hatchback-icon.png"> Hatchback</p>
+            <p> <img src="./assets/images/Manual cars icon.png">Manual</p>
+            <p><img src="./assets/images/Cars seats icon.png"> 5Seats</p>
+          </div>
+          <p class="price">₹ 2800 <sup><span style="font-size:20px;">Perday</span></sup></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="car-card">
+          <h5>Baleno AT Maruti</h5>
+          <img src="./assets/images/5 Seater cars (Manual and automatic)-Santro AT Maruti image.png" alt="Baleno Maruti">
+          <div class="features">
+            <p><img src="./assets/images/Cars Hatchback-icon.png"> Hatchback</p>
+            <p> <img src="./assets/images/Manual cars icon.png">Manual</p>
+            <p><img src="./assets/images/Cars seats icon.png"> 5Seats</p>
+          </div>
+          <p class="price">₹ 3500 <sup><span style="font-size:20px;">Perday</span></sup></p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <button class="view-btn"><a href="./cars.html" style="text-decoration: none;color: black;">View more</a></button>
+    </div>
+  </div>
+
+  <div class="car-section">
+    <h4 class="section-heading">Automatic 7seater Cars</h4>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="car-card">
+          <h5>Swift Maruti</h5>
+          <img src="./assets/images/5 Seater cars (Manual and automatic)-Swift Maruti image.png" alt="Swift Maruti">
+          <div class="features">
+            <p><img src="./assets/images/Cars Hatchback-icon.png"> Hatchback</p>
+            <p> <img src="./assets/images/Manual cars icon.png">Manual</p>
+            <p><img src="./assets/images/Cars seats icon.png"> 5Seats</p>
+          </div>
+          <p class="price">₹ 2500 <sup><span style="font-size:20px;">Perday</span></sup></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="car-card">
+          <h5>Santro AT Hyundai</h5>
+          <img src="./assets/images/5 Seater cars (Manual and automatic)-Santro AT Hyndai image.png" alt="Santro Hyundai">
+          <div class="features">
+            <p><img src="./assets/images/Cars Hatchback-icon.png"> Hatchback</p>
+            <p> <img src="./assets/images/Manual cars icon.png">Manual</p>
+            <p><img src="./assets/images/Cars seats icon.png"> 5Seats</p>
+          </div>
+          <p class="price">₹ 2800 <sup><span style="font-size:20px;">Perday</span></sup></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="car-card">
+          <h5>Baleno AT Maruti</h5>
+          <img src="./assets/images/5 Seater cars (Manual and automatic)-Santro AT Maruti image.png" alt="Baleno Maruti">
+          <div class="features">
+            <p><img src="./assets/images/Cars Hatchback-icon.png"> Hatchback</p>
+            <p> <img src="./assets/images/Manual cars icon.png">Manual</p>
+            <p><img src="./assets/images/Cars seats icon.png"> 5Seats</p>
+          </div>
+          <p class="price">₹ 3500 <sup><span style="font-size:20px;">Perday</span></sup></p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <button class="view-btn"><a href="./cars.html" style="text-decoration: none;color: black;">View more</a></button>
+    </div>
+  </div>
+</div>
+
+
+<section class="why-section container">
+  <div class="why-divider"></div>
+  <h3>WHY ZARA CARS</h3>
+
+  <div class="row g-4 justify-content-center">
+    <!-- Card 1 -->
+    <div class="col-md-4">
+      <div class="why-card">
+        <h5>Home delivery and Return</h5>
+        <p>On time doorstep service,<br>at your Preferred location and time</p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4">
+      <div class="why-card">
+        <h5>Flexible Pricing and Plans</h5>
+        <p>Choose ‘unlimited kms’<br>with fuel plans</p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4">
+      <div class="why-card">
+        <h5>Well Maintained Cars</h5>
+        <p>Regular service and maintenance<br>Inspected before each Trip</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="why-divider mt-5"></div>
+</section>
+
+
+
+<section class="faq-section container">
+  <div class="faq-container">
+    <h2>FAQs?</h2>
+
+    <div>
+      <div class="faq-question">Is there a speed limit?</div>
+      <div class="faq-answer">
+        Zara cars allows up to 125 km/hr. However it is 80 km/hr in a few cities where some cars might be equipped with speed governors as per government directives. Zara cars strictly advises to follow local speed limits.
+      </div>
+    </div>
+
+    <div>
+      <div class="faq-question">Can I extend/ cancel/ modify?</div>
+      <div class="faq-answer">
+        Yes, extensions are possible subject to availability & charges. Cancellations & modifications will attract nominal charges as per our policy.
+      </div>
+    </div>
+
+    <div>
+      <div class="faq-question">Booking criteria & documents?</div>
+      <div class="faq-answer">
+        Min. 21 years old, have a valid original government ID (Aadhar or Passport) and an original hard copy or a DigiLocker of a driving license for “Light Motor Vehicles,” which is at least 6 months old at the time of starting the trip. We may ask for additional documents for verification in some cases, e.g., local ID or proof of travel
+      </div>
+    </div>
+
+    <div>
+      <div class="faq-question">Are there any restricted areas?</div>
+      <div class="faq-answer">
+        Leh/Ladakh, Spiti Valley & Kaza/Nako regions are not permitted to take Zara cars. Customer will be fully liable for any damages incurred to the car in that region.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="container py-5">
+  <h3 class="testimonial-heading"> Our Happy Customers</h3>
+  <div class="row justify-content-center g-4">
+    
+    <!-- Card 1 -->
+    <div class="col-md-4 col-sm-6">
+      <div class="testimonial-card">
+        <img src="./assets/images/Our happy customer image 1.png" alt="David" class="testimonial-img">
+        <div class="testimonial-name">David <span class="testimonial-star">4 ⭐</span></div>
+        <p class="testimonial-text">
+          Nice service for on time pickup and drop up. Good customer support and friendly service.
+          The car was very smooth and the package was pocket friendly.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4 col-sm-6">
+      <div class="testimonial-card">
+        <img src="./assets/images/Our happy customer image 2.png" alt="Mettilda" class="testimonial-img">
+        <div class="testimonial-name">Mettilda <span class="testimonial-star">4 ⭐</span></div>
+        <p class="testimonial-text">
+          Nice service for on time pickup and drop up. Good customer support and friendly service.
+          The car was very smooth and the package was pocket friendly.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4 col-sm-6">
+      <div class="testimonial-card">
+        <img src="./assets/images/Our happy customer image 3.png" alt="Jhon" class="testimonial-img">
+        <div class="testimonial-name">Jhon <span class="testimonial-star">4 ⭐</span></div>
+        <p class="testimonial-text">
+          Nice service for on time pickup and drop up. Good customer support and friendly service.
+          The car was very smooth and the package was pocket friendly.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer-section py-5 mt-5">
+  <div class="container">
+    <div class="row justify-content-between align-items-start">
+
+      <!-- Logo & Social -->
+      <div class="col-md-4 mb-4 mb-md-0">
+        <div class="d-flex align-items-center mb-2">
+          <img src="./assets/images/Zara cars logo icon.png" alt="car logo" width="70" class="me-2">
+          <div>
+            <strong style="font-size: 20px;">ZARA</strong><br>
+            <small style="font-weight: 600;"> Cars</small>
+          </div>
+        </div>
+        <div class="d-flex gap-3 mt-3">
+          <a href="https://www.youtube.com/"><img src="./assets/images/Social media icon -Youtube.png" width="24" alt="YouTube"></a>
+          <a href="https://x.com/?lang=en-in"><img src="./assets/images/Social media icon -Twitter.png" width="24" alt="Twitter"></a>
+          <a href="https://www.facebook.com/"><img src="./assets/images/Social media icon -Face book.png" width="24" alt="Twitter"></a>
+
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h4 class="fw-bold mb-3">About</h4>
+        <ul class="list-unstyled">
+          <li><a href="./index.html" class="footer-link">Home</a></li>
+          <li><a href="./aboutUs.html" class="footer-link">About us</a></li>
+          <li><a href="./cars.html" class="footer-link">Our cars</a></li>
+          <li><a href="./aboutUs.html" class="footer-link">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-4">
+        <h4 class="fw-bold mb-3">Contact us</h4>
+        <ul class="list-unstyled">
+          <li class="mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+              <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+            </svg>
+            +9362652360
+          </li>
+          <li class="mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+            </svg>
+            zaracarscars.in
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+              <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+              <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+            </svg>
+            143, Perumal Puram Road,<br>
+            Madurai - 627 756
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/js/rentalcars.js"></script>
+<script src="./assets/js/serach.js"></script>
+<script src="./assets/js/signIn.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

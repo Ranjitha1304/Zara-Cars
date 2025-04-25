@@ -1,0 +1,210 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .navbar {
+    position:sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .navbar .logo {
+    font-weight: bold;
+  }
+  
+  .navbar button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 350px;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 1000;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s ease;
+  }
+  
+  .sidebar.open {
+    right: 0;
+  }
+  
+  .sidebar-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-content h2 {
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-content label {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  /* Input Fields */
+  .input-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .input-wrapper .input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+  }
+  
+  .sidebar-content input {
+    padding: 10px 10px 10px 35px; /* Added padding for icon */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .primary-btn {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #00AEEF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .primary-btn:hover {
+    background-color: #0096cc;
+  }
+  
+  .forgot {
+    margin-top: 8px;
+    text-align: right;
+  }
+  
+  .forgot a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #0077cc;
+  }
+  
+  /* Divider */
+  .divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+  }
+  
+  .divider span {
+    background: #fff;
+    padding: 0 10px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+    left: 0;
+    z-index: 0;
+  }
+  
+  /* Google Button */
+  .google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.3s;
+  }
+  
+  .close-btn:hover {
+    color: #000;
+  }
+  
+  /* Success Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 0.4s ease;
+  }
+  
+  .modal-content img {
+    width: 100px;
+    margin-bottom: 15px;
+  }
+  
+  .modal-content p {
+    font-size: 18px;
+    color: #2E7D32;
+    font-weight: bold;
+  }
+  .error-list {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+    padding-left: 18px;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  

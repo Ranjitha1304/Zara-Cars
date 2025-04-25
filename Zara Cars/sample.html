@@ -1,0 +1,372 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Car Rental in Tenkasi</title>
+  <link rel="stylesheet" href="./assets/css/tenkasi.css">
+</head>
+<body>
+  <div class="container">
+    <div class="top-section">
+      <div class="filters">
+        <h2>Find Your Car</h2>
+        <label>Type:</label>
+        <select id="carType">
+          <option value="">--Select Type--</option>
+          <option value="5-seater">5 Seater</option>
+          <option value="7-seater">7 Seater</option>
+        </select>
+
+        <label>Pickup Location:</label>
+        <select id="pickupLocation">
+          <option value="">Select City</option>
+          <option value="Tenkasi">Tenkasi</option>
+          <option value="Madurai">Madurai</option>
+          <option value="Chennai">Chennai</option>
+        </select>
+
+        <label>Drop Location:</label>
+        <select id="dropLocation">
+          <option value="">Select City</option>
+          <option value="Madurai">Madurai</option>
+          <option value="Tenkasi">Tenkasi</option>
+          <option value="Chennai">Chennai</option>
+        </select>
+
+        <label>Pickup Date:</label>
+        <input type="date" id="pickupDate">
+
+        <label>Pickup Time:</label>
+        <input type="time" id="pickupTime">
+
+        <button onclick="filterCars()">Search</button>
+      </div>
+
+      <div class="right-image">
+        <img src="static-image.jpg" alt="Car Rental Image">
+      </div>
+    </div>
+
+    <div id="carsContainer" class="cars-grid"></div>
+  </div>
+
+  <script src="./assets/js/tenkasi.js"></script>
+</body>
+</html> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Car Rental in Tenkasi</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      padding: 30px;
+      gap: 30px;
+    }
+
+    .left-panel {
+      flex: 1;
+    }
+
+    .left-panel label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .left-panel select,
+    .left-panel input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .left-panel button {
+      width: 100%;
+      padding: 12px;
+      background-color: #2E7D32;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .right-panel {
+      flex: 2;
+    }
+
+    .right-panel img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .car-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .car-card {
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      width: calc(33.333% - 20px);
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .car-card button {
+      margin-top: 10px;
+      background-color: #2E7D32;
+      color: white;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .details-section {
+      display: none;
+      padding: 40px;
+      display: flex;
+      gap: 30px;
+    }
+
+    .details-left {
+      flex: 1.5;
+    }
+
+    .details-right {
+      flex: 1;
+      border-left: 1px solid #ccc;
+      padding-left: 30px;
+    }
+
+    .booking-box {
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .fare-box {
+      font-size: 15px;
+    }
+
+    .fare-box h3 {
+      margin-bottom: 10px;
+    }
+
+    .fare-box .line {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+    }
+
+    .proceed-btn {
+      margin-top: 20px;
+      background-color: #FBBF24;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .car-card { width: 100%; }
+      .details-section { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div><strong>ZARA</strong> Cars</div>
+    <nav>
+      <a href="#">Home</a> |
+      <a href="#">About</a> |
+      <a href="#">Rental Cars</a> |
+      <a href="#">FAQs</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="left-panel">
+      <label>Car Type</label>
+      <select id="carType">
+        <option value="">Select Type</option>
+        <option value="5">5-Seater</option>
+        <option value="7">7-Seater</option>
+      </select>
+
+      <label>Pickup Location</label>
+      <input type="text" id="pickupLocation" placeholder="e.g. Tenkasi">
+
+      <label>Drop Location</label>
+      <input type="text" id="dropLocation" placeholder="e.g. Surandai">
+
+      <label>Pickup Date</label>
+      <input type="date" id="pickupDate">
+
+      <label>Pickup Time</label>
+      <input type="time" id="pickupTime">
+
+      <button onclick="filterCars()">Search</button>
+    </div>
+
+    <div class="right-panel">
+      <img src="https://via.placeholder.com/600x250.png?text=Travel+with+ZARA+Cars" alt="Banner">
+    </div>
+  </div>
+
+  <div class="car-list" id="carList"></div>
+
+  <div class="details-section" id="detailsSection"></div>
+
+  <script>
+    const cars = [
+      {
+        id: 1,
+        name: "Swift Maruti",
+        type: "5",
+        image: "https://imgd.aeplcdn.com/664x374/n/cw/ec/27655/swift-exterior-right-front-three-quarter-2.jpeg",
+        specs: ["Hatchback", "Manual", "5Seats", "₹2500 Perday"],
+        fare: {
+          base: 400,
+          pickup: 500,
+          insurance: "Included",
+          deposit: 2000,
+          total: 2900,
+          kms: 539,
+          fuel: "Excluded",
+          extra: "7/km",
+          tolls: "To be paid by you"
+        }
+      },
+      {
+        id: 2,
+        name: "Innova Crysta",
+        type: "7",
+        image: "https://imgd.aeplcdn.com/664x374/n/cw/ec/141751/innova-crysta-exterior-right-front-three-quarter.jpeg",
+        specs: ["SUV", "Automatic", "7Seats", "₹4000 Perday"],
+        fare: {
+          base: 600,
+          pickup: 500,
+          insurance: "Included",
+          deposit: 3000,
+          total: 4100,
+          kms: 600,
+          fuel: "Excluded",
+          extra: "8/km",
+          tolls: "To be paid by you"
+        }
+      }
+    ];
+
+    function loadCars(carArray) {
+      const container = document.getElementById("carList");
+      container.innerHTML = "";
+      carArray.forEach(car => {
+        const card = document.createElement("div");
+        card.className = "car-card";
+        card.innerHTML = `
+          <img src="${car.image}">
+          <h3>${car.name}</h3>
+          <p>${car.specs.join("<br>")}</p>
+          <button onclick="showDetails(${car.id})">View Details</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterCars() {
+      const type = document.getElementById("carType").value;
+      const filtered = cars.filter(car => car.type === type);
+      loadCars(filtered);
+    }
+
+    function showDetails(carId) {
+      const car = cars.find(c => c.id === carId);
+      const details = document.getElementById("detailsSection");
+      const pickup = document.getElementById("pickupLocation").value;
+      const drop = document.getElementById("dropLocation").value;
+      const date = document.getElementById("pickupDate").value;
+      const time = document.getElementById("pickupTime").value;
+
+      document.getElementById("carList").style.display = "none";
+
+      details.innerHTML = `
+        <div class="details-left">
+          <h3>${car.name}</h3>
+          <img src="${car.image}" width="300">
+          <p>${car.specs.join("<br>")}</p>
+
+          <div class="booking-box">
+            <h4>BOOKING DETAILS</h4>
+            <p>${pickup} (${time})<br>${date}</p>
+            <strong>To</strong>
+            <p>${drop} (11:30pm)<br>${date}</p>
+            <p>🕒 2.20 hrs<br>${pickup} city</p>
+          </div>
+        </div>
+
+        <div class="details-right">
+          <div class="fare-box">
+            <h3>Fare Details</h3>
+            <div class="line"><span>Base fare</span><span>₹ ${car.fare.base}</span></div>
+            <div class="line"><span>Doorstep delivery & pickup</span><span>₹ ${car.fare.pickup}</span></div>
+            <div class="line"><span>Insurance & GST</span><span>${car.fare.insurance}</span></div>
+            <div class="line"><span>Refundable security deposit</span><span>₹ ${car.fare.deposit}</span></div>
+            <hr>
+            <div class="line"><strong>Total</strong><strong>₹ ${car.fare.total}</strong></div>
+            <hr>
+            <div class="line"><span>Kms limit</span><span>${car.fare.kms} kms</span></div>
+            <div class="line"><span>Fuel</span><span>${car.fare.fuel}</span></div>
+            <div class="line"><span>Extra kms charge</span><span>${car.fare.extra}</span></div>
+            <div class="line"><span>Tolls, Parking &<br>Inter-state taxes</span><span>${car.fare.tolls}</span></div>
+            <button class="proceed-btn">Proceed</button>
+          </div>
+        </div>
+      `;
+      details.style.display = "flex";
+    }
+
+    loadCars(cars); // Load all cars by default
+  </script>
+
+</body>
+</html>
