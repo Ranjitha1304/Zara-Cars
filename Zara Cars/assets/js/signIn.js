@@ -74,3 +74,10 @@ function getPasswordErrors(password) {
   }
   return errors;
 }
+
+const googleBtn = document.querySelector('.google-btn');
+
+googleBtn.addEventListener('click', function () {
+  window.location.href = "https://accounts.google.com/";
+});
+
